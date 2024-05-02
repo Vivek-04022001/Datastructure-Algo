@@ -178,3 +178,28 @@ rule 4 : Drop Non Dominants
 - O(n+ n^2 + 2^n) = O(2^n)
 
 */ 
+
+// ------------------
+// Lecture 46. O(n!)    
+// ------------------
+
+// it is the most expensive operation in the code 
+
+
+// ------------------------------------
+// Lecture 47. 3 Pillars of Programming    
+// ------------------------------------
+
+/*
+To understand what are the characterstics of the writing the good code . And this is
+1. Readable
+2. Memory (Space complexity)
+3. Speed (Time Complexity)
+*/ 
+
+// --------------------------------------
+// Lecture 49. Exercise: Space Complexity    
+// --------------------------------------
+
+
+
