@@ -10,25 +10,24 @@ should return false
 */
 
 const array1 = ["a", "b", "c", "x"];
-const array2 = ["z", "y,", "a"];
+const array2 = ["z", "y,",1];
 
 function isSimilarElementsExists(array1, array2) {
-  // convert the array1 to the corresponding obj.
+  // create a object similar to array1
   let map = {};
   for (let i = 0; i < array1.length; i++) {
     if (!map[array1[i]]) {
-      const item = array1[i];
+      let item = array1[i];
       map[item] = true;
     }
+    // console.log(map);
   }
-  console.log(map);
 
-  // compare the new object with second array
-  for (let j = 0; j < array2.length; j++) {
-    if (map[array2[j]]) {
-      return true;
-    }
+  // comparing the map with second array
+  for(let j=0;j<array2.length; j++){
+    if(map[array2[j]]) return true;
   }
+
   return false;
 }
 
