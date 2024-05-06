@@ -24,25 +24,30 @@ Constraints:
 */
 
 function containsDuplicate(nums) {
-  
-    if (nums.length > 1) {
+  if (nums.length > 1) {
     nums.sort();
   } else {
     return false;
   }
 
   for (let i = 0; i < nums.length; i++) {
-    if ((i < nums.length-1) && (nums[i] === nums[i + 1]) ) {
+    if (i < nums.length - 1 && nums[i] === nums[i + 1]) {
       return true;
-    } 
+    }
   }
   return false;
 }
 
 // second way
 function containsDuplicate2(nums) {
-  let mySet = new Set(nums);
-  return nums.length > mySet.size;
+  let mySet = new Set();
+  for (let i = 0; i < nums.length; i++) {
+    if (mySet.has(nums[i])) {
+      return true;
+    }
+    mySet.add(nums);
+  }
+  return false;
 }
 
 console.log(containsDuplicate2([1, 2, 3, 4]));
