@@ -43,6 +43,23 @@ Hash Collision
 -----------------------------------
 - Insert, Lookup, Deletion, Searching has O(1) time complexity
 
-- 
+- Hash Collision : 
+    1. Without Collision (Ideal Case) :In the absence of collisions, hash map operations have an average time complexity of O(1). This means that regardless of the size of the data set, the time taken to perform operations remains constant on average.
+
+    2. With Collision: 
+    When collisions occur, the time complexity of hash map operations can degrade. In the worst-case scenario, where all keys produce the same hash code (a degenerate hash function), the time complexity can be O(n), where n is the number of keys.
+    
+    However, in well-designed hash functions and hash maps, collisions are typically resolved using collision resolution techniques such as chaining or open addressing.
+    
+    In chaining, each bucket in the hash table is associated with a linked list or another data structure to store multiple key-value pairs that hash to the same index. The time complexity of operations in a chained hash map depends on the efficiency of the underlying data structure used for chaining.
+    
+    In open addressing, when a collision occurs, the hash map looks for an alternative location to store the key-value pair within the hash table. This may involve probing or searching for an empty slot. The time complexity of operations in an open-addressed hash map also depends on the efficiency of the probing strategy used.
+    
+
+
+-----------------------------------
+Hash Tables in Different Language
+-----------------------------------
+
 
 */

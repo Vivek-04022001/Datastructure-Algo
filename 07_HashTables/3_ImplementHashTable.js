@@ -2,37 +2,63 @@
 // Implementing Hash Tables in Javascript
 // --------------------------------------
 
-
 class HashTable {
-    constructor(size){
-      this.data = new Array(size);
-    }
+  constructor(size) {
+    this.data = new Array(size);
+  }
 
-    set(key,value){
-        const address = this._hash(key);
-        this.data[address] = key;
-        this.data[address+1] = value;
-
-        return [address,key,value]
+  //   O(1)
+  set(key, value) {
+    const address = this._hash(key);
+    if (!this.data[address]) {
+      this.data[address] = [];
+      this.data[address].push([key, value]);
+      console.log(this.data);
     }
+    this.data[address].push([key, value]);
+    return this.data;
+  }
 
-    get(key){
-        const indexOfKey = this.data.indexOf(key);
-        return this.data[indexOfKey+1]
-    }
-  
-    _hash(key) {
-      let hash = 0;
-      for (let i =0; i < key.length; i++){
-          hash = (hash + key.charCodeAt(i) * i) % this.data.length
+  //   O(1) and O(n) where n is the size of hashtables.
+  get(key) {
+    let address = this._hash(key);
+    const currentBucket = this.data[address];
+    if (currentBucket.length) {
+      for (let i = 0; i < currentBucket.length; i++) {
+        if (currentBucket[i][0] === key) {
+          return currentBucket[i][1];
+        }
       }
-      return hash;
+    } else {
+      return undefined;
     }
   }
-  
-  const myHashTable = new HashTable(50);
-  myHashTable.set('grapes', 10000)
-  myHashTable.get('grapes')
-  myHashTable.set('apples', 9)
-  myHashTable.get('apples')
-  console.log(myHashTable)
+
+  //   O(n) n: is the length of hash tables.
+  keys() {
+    const keysArray = [];
+    for (let i = 0; i < this.data.length; i++) {
+      if (this.data[i]) {
+        keysArray.push(this.data[i][0][0]);
+      }
+    }
+
+    return keysArray;
+  }
+
+  //   hash function is always O(1) in hashtables
+  _hash(key) {
+    let hash = 0;
+    for (let i = 0; i < key.length; i++) {
+      hash = (hash + key.charCodeAt(i) * i) % this.data.length;
+    }
+    return hash;
+  }
+}
+
+const myHashTable = new HashTable(50);
+myHashTable.set("grapes", 10000);
+myHashTable.get("grapes");
+myHashTable.set("apples", 9);
+myHashTable.get("apples");
+console.log(myHashTable);
