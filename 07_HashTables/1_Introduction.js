@@ -60,6 +60,56 @@ Hash Collision
 -----------------------------------
 Hash Tables in Different Language
 -----------------------------------
+ 
 
+-----------------------------------
+Hash Functions, MD5 and sha256 ?
+-----------------------------------
+Hash functions are mathematical functions that take input data of arbitrary size and produce a fixed-size output, called a hash value or digest. These functions are designed to be efficient, one-way (irreversible), and collision-resistant (i.e., it should be computationally infeasible to find two different inputs that produce the same hash value).
+The main difference between hash functions lies in their underlying algorithms, which determine their cryptographic strength, performance, and output size. Some commonly used hash functions include:
+
+MD5 (Message Digest 5):
+
+Developed by Ron Rivest in 1992.
+Produces a 128-bit (16-byte) hash value.
+Originally designed for digital signature applications.
+Due to its weaknesses and susceptibility to collisions, MD5 is now considered insecure for cryptographic applications.
+
+
+SHA-256 (Secure Hash Algorithm 256-bit):
+
+Part of the SHA-2 family of hash functions, designed by the National Security Agency (NSA).
+Produces a 256-bit (32-byte) hash value.
+Widely used in various security applications, including digital signatures, secure protocols, and password hashing.
+Considered much more secure than MD5, as no significant collisions have been found yet.
+
+
+
+Working of MD5:
+MD5 operates by breaking the input data into 512-bit blocks and processing them through four rounds of operations involving bitwise operations, modular additions, and non-linear functions. The final hash value is a 128-bit digest. However, MD5 is now considered insecure due to its vulnerabilities to collision attacks, which allow an attacker to find two different inputs that produce the same hash value.
+Working of SHA-256:
+SHA-256 is a member of the SHA-2 family and is more complex than MD5. It operates on 512-bit message blocks and applies a sequence of compression functions to produce the final 256-bit hash value. The algorithm involves several rounds of operations, including bitwise operations, modular additions, and non-linear functions, similar to MD5 but with increased complexity. SHA-256 is considered more secure than MD5 due to its larger output size and the lack of significant collisions found so far.
+It's important to note that while SHA-256 is currently considered secure, newer and more secure hash functions, such as SHA-3 (e.g., SHA3-256), have been developed to address potential future weaknesses and provide even stronger cryptographic guarantees.
+In general, when choosing a hash function for cryptographic applications, it is recommended to use the most secure and widely accepted function available, such as SHA-256 or SHA-3, rather than weaker functions like MD5, which are no longer considered secure.
+
+---------------------------------------
+Usage of hash functions in Javacript
+---------------------------------------
+In programming languages like JavaScript, the hash functions used in hash maps (also known as objects or dictionaries) are typically not cryptographic hash functions like MD5 or SHA-256. Instead, they use simpler, non-cryptographic hash functions that are designed for efficient hash table operations and fast lookups.
+In JavaScript, the exact hash function used for hash maps (objects) is not specified by the language specification. It is implementation-dependent, meaning that different JavaScript engines (e.g., V8 in Chrome, SpiderMonkey in Firefox, JavaScriptCore in Safari) can use different hash functions for their respective object implementations.
+However, most JavaScript engines use a variation of one of the following hash functions for hash maps:
+
+Murmur Hash: A non-cryptographic hash function suitable for general hash-based lookup. It is designed to be fast and provide good distribution of hash values.
+FNV Hash (Fowler–Noll–Vo hash function): A simple and efficient non-cryptographic hash function that has good performance and distributes hash values reasonably well.
+PerlHash Function: A hash function originally used in the Perl programming language, which is a variant of the FNV hash function.
+
+These hash functions are designed to be fast and provide good distribution of hash values for general-purpose use cases like hash tables and hash maps. They are not intended for cryptographic purposes, as they do not provide the same level of security and collision resistance as cryptographic hash functions like MD5 or SHA-256.
+It's important to note that the exact implementation details and hash functions used in JavaScript engines can change over time, as they are constantly being optimized for performance and memory usage. However, the core principles of using non-cryptographic hash functions for efficient hash table operations remain the same across different JavaScript engines and versions.
+
+
+
+
+
+Questions : What is the basic difference between different hash functions example , md5 and sha256?
 
 */
