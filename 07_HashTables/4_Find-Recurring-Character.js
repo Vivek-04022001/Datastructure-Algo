@@ -11,6 +11,7 @@ If the function finishes iterating over nums without finding a recurring charact
 
 This function uses an object to keep track of the characters it has seen so far, which allows it to find the first recurring character in O(n) time, where n is the length of nums.
 
+Time Complexity : O(n)
 */
 
 function findRecurringCharacter(nums) {
