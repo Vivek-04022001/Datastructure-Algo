@@ -27,4 +27,4 @@ function findRecurringCharacter(nums) {
   return undefined;
 }
 
-console.log(findRecurringCharacter([99, 5,5, 1, 99, 3, 5, 1, 99, 4]));
+console.log(findRecurringCharacter([99, 5, 5, 1, 99, 3, 5, 1, 99, 4]));
