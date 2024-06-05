@@ -60,6 +60,18 @@ class LinkedList {
 
     return this.printList();
   }
+  remove(index) {
+    // check params
+    if (index >= this.length) {
+      return undefined;
+    }
+    const leader = this.traverseToIndex(index - 1);
+    const holdingPointer = leader.next;
+    const nextPointer = holdingPointer.next;
+    leader.next = nextPointer;
+    this.length--;
+    this.printList();
+  }
 
   printList() {
     const array = [];
@@ -84,6 +96,5 @@ const myLinkedList = new LinkedList(10);
 myLinkedList.append(12);
 myLinkedList.prepend(9);
 
-myLinkedList.insert(1,88)
-
-
+myLinkedList.insert(1, 88);
+myLinkedList.remove(1);
