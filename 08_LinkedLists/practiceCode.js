@@ -1,76 +1,39 @@
-// Implement single linked list in javascript
-class Node {
-  constructor(value) {
+
+class Node{
+  constructor(value){
     this.value = value;
     this.next = null;
+    this.prev = null;
   }
 }
 
-class LinkedList {
-  constructor(value) {
+class DoublyLinkedList{
+  constructor(value){
     this.head = {
       value,
-      next: null,
-    };
+      next : null,
+      prev : null
+    }
     this.tail = this.head;
-    this.length = 1;
+    this.length = 1
   }
 
-  // append(value)
-  append(value) {
-    const newNode = new Node(value);
-    this.tail.next = newNode;
-    this.tail = newNode;
-    this.length++;
-    return printLinkedList();
-  }
-
-  // prepend
-  prepend(value) {
-    const newNode = new Node(value);
-    newNode.next = this.head;
-    this.head = newNode;
-    this.length++;
-    return this.printLinkedList();
-  }
-
-  // insert
-  insert(index, value){
-    const newNode = new Node(value);
-    const leader = this.traverseToIndex(index-1)
-    const holdingPointer = leader.next
-    newNode.next = holdingPointer
-    leader.next = newNode;
-    this.length++;
-    return this.printLinkedList()
-  }
-
-  // print list
-  printLinkedList() {
-    let currentNode = this.head;
-    let array = [];
-    while (currentNode !== null) {
-      array.push(currentNode.value);
-      currentNode = currentNode.next;
-    }
-
-    console.log(array);
-  }
-
-  // traverse the linked list
-  traverseToIndex(index) {
-    let counter = 0;
-    let currentNode = this.head;
-    while (counter !== index) {
-      currentNode = currentNode.next;
-      counter++;
-    }
-    return currentNode;
+  // append
+  append(value){
+    
   }
 }
 
-const myLinkedList = new LinkedList(10);
-myLinkedList.append(12);
-myLinkedList.prepend(9);
-myLinkedList.insert(1, 88);
-myLinkedList.remove(1);
+
+let myLinkedList = new DoublyLinkedList(10);
+myLinkedList.append(5);
+myLinkedList.append(16);
+myLinkedList.prepend(1);
+myLinkedList.prepend(-1);
+myLinkedList.insert(2, 8);
+myLinkedList.insert(4, 4);
+myLinkedList.remove(6);
+// myLinkedList.printList();
+// myLinkedList.insert(2, 99);
+//   myLinkedList.insert(20, 88);
+//   myLinkedList.remove(2);
