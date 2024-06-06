@@ -42,7 +42,10 @@ Traversal (linear search)
 Finding length
 
 prepend, append -> O(1)
-lookup, insert, delete -> O(n)
+lookup, insert, delete at index -> O(n)
+
+inshort, linked  list is great for fast  insertion, deletion (at the start or at the end), ordered, size, 
+but worst for lookup because we have traverse the entire linked list over and over again . Also it consume more memory as compared to hashtables and arrays
 
 
 --------------------
@@ -58,7 +61,6 @@ Allows traversal in both forward and backward directions.
 Advantages of Doubly Linked List:
 
 Bi-directional Traversal: Nodes can be traversed in both forward and backward directions, providing more flexibility.
-Efficient Deletion: Deletion of a node is more efficient as we have access to the previous node, making it an O(1) operation.
 Maintains Head and Tail: Direct access to both the head and tail nodes is possible, making operations like insertion and deletion at the beginning and end more efficient (O(1) time complexity).
 
 Disadvantages of Doubly Linked List:
@@ -69,5 +71,17 @@ Reverse Traversal Required: Certain operations, such as finding the length of th
 
 -> Prepend, Append => O(1)
 -> Lookup, Insert, Delete => O(n)
+
+------------------------------------------
+What is the significance of the  Pointers?
+------------------------------------------
+In the context of linked lists, a pointer refers to a variable or a property that stores the memory address of another node (or element) in the list. Pointers are used to establish the links between nodes, allowing navigation through the list.
+In a singly linked list, each node typically has two parts:
+
+Data: This part stores the actual data or value of the node.
+Next Pointer: This part stores the memory address of the next node in the list, effectively creating a link to the next node.
+
+Pointers are the fundamental building blocks that enable the creation and navigation of linked lists. By updating and following these pointers, we can perform operations like insertion, deletion, and traversal on the linked list data structure.
+Pointers are essential in linked lists because they allow nodes to be scattered in memory, unlike arrays where elements are stored contiguously. This dynamic memory allocation and linking of nodes through pointers provide the flexibility and benefits of linked lists, such as efficient insertion and deletion operations, at the cost of some additional memory overhead for storing the pointers themselves.
 
 */
