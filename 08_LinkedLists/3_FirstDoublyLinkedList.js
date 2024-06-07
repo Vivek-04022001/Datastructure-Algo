@@ -8,6 +8,7 @@ class DoublyLinkedList {
       this.tail = this.head;
       this.length = 1;
     }
+    //  
     append(value) {
       const newNode = {
         value: value,
