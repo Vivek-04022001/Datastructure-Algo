@@ -18,6 +18,7 @@ class HashTable {
     this.data[address].push([key, value]);
     return this.data;
   }
+  // this function has least time complexity
 
   //   O(1) and O(n) where n is the size of hashtables.
   get(key) {
