@@ -1,99 +1,44 @@
-class Node {
-  constructor(value) {
-    this.value = value;
-    this.next = null;
-    this.prev = null;
-  }
-}
+/*
+100320. Maximum Total Reward Using Operations II
+User Accepted:20
+User Tried:137
+Total Accepted:21
+Total Submissions:302
+Difficulty:Hard
+You are given an integer array rewardValues of length n, representing the values of rewards.
 
-class DoublyLinkedList {
-  constructor(value) {
-    this.head = {
-      value,
-      next: null,
-      prev: null,
-    };
-    this.tail = this.head;
-    this.length = 1;
-  }
+Initially, your total reward x is 0, and all indices are unmarked. You are allowed to perform the following operation any number of times:
 
-  // append
-  append(value) {
-    const newNode = new Node(value);
-    newNode.prev = this.tail;
-    this.tail.next = newNode;
-    this.tail = newNode;
-    this.length++;
-    return this.printLinkedList();
-  }
-  //prepend
-  prepend(value) {
-    const newNode = new Node(value);
-    newNode.next = this.head;
-    this.head.prev = newNode;
-    this.head = newNode;
-    this.length++;
-    return this.printLinkedList();
-  }
+Choose an unmarked index i from the range [0, n - 1].
+If rewardValues[i] is greater than your current total reward x, then add rewardValues[i] to x (i.e., x = x + rewardValues[i]), and mark the index i.
+Return an integer denoting the maximum total reward you can collect by performing the operations optimally.
 
-  // insert
-  insert(index, value) {
-    // check the param
-    if (index === 0) {
-      return this.prepend();
-    }
-    if (index === this.length - 1) {
-      return this.append();
-    }
-    if (index >= this.length) {
-      console.log("Exceed the limit of linkedlist");
-      return;
-    }
-    const newNode = new Node(value);
-    const leader = this.traverseToIndex(index - 1);
-    const currentNode = leader.next;
-    leader.next = newNode;
-    newNode.prev = leader;
-    currentNode.prev = newNode;
-    newNode.next = currentNode;
-    this.length++;
-    return this.printLinkedList();
-  }
+ 
 
-  // 
+Example 1:
 
-  // print my linkedlist
-  printLinkedList() {
-    let array = [];
-    let currentNode = this.head;
-    while (currentNode !== null) {
-      array.push(currentNode.value);
-      currentNode = currentNode.next;
-    }
-    console.log(array);
-  }
+Input: rewardValues = [1,1,3,3]
 
-  // traverse to index
-  traverseToIndex(index) {
-    let counter = 0;
-    let currentNode = this.head;
-    while (counter !== index) {
-      currentNode = currentNode.next;
-      counter++;
-    }
-    return currentNode;
-  }
-}
+Output: 4
 
-let myLinkedList = new DoublyLinkedList(10);
-myLinkedList.append(5);
-myLinkedList.append(16);
-myLinkedList.prepend(1);
-myLinkedList.prepend(-1);
-myLinkedList.insert(2, 8);
-// myLinkedList.insert(4, 4);
-// myLinkedList.remove(6);
-// myLinkedList.printList();
-// myLinkedList.insert(2, 99);
-//   myLinkedList.insert(20, 88);
-//   myLinkedList.remove(2);
+Explanation:
+
+During the operations, we can choose to mark the indices 0 and 2 in order, and the total reward will be 4, which is the maximum.
+
+Example 2:
+
+Input: rewardValues = [1,6,4,3,2]
+
+Output: 11
+
+Explanation:
+
+Mark the indices 0, 2, and 1 in order. The total reward will then be 11, which is the maximum.
+
+ 
+
+Constraints
+
+1 <= rewardValues.length <= 5 * 104
+1 <= rewardValues[i] <= 5 * 104
+*/
