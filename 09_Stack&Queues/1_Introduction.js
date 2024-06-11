@@ -47,4 +47,18 @@ For queues, an array-based implementation is simple to implement and provides fa
 In summary, array-based implementations are often preferred for their simplicity and performance when the size can be estimated or managed with dynamic arrays. Linked list-based implementations are advantageous when dynamic sizing is required, and they avoid the overhead of resizing but at the cost of increased memory usage and slower indexed access. For stacks, arrays are typically more efficient unless dynamic resizing is a major concern. For queues, linked lists are often more efficient due to their dynamic nature and efficient enqueue/dequeue operations.
 
 
+------------------------------------------------------
+Event Loop and Single Threaded behavior of Javascript
+------------------------------------------------------
+
+
+The event loop is a core part of JavaScript's runtime, essential for handling asynchronous operations in its single-threaded environment. JavaScript operates in a single-threaded manner, meaning it can execute only one piece of code at a time. This behavior is managed through the event loop, which allows JavaScript to perform non-blocking operations despite being single-threaded.
+
+When JavaScript code is executed, it starts in the call stack, a structure that tracks function calls. Synchronous code runs directly in the call stack, executing line by line. If the code encounters an asynchronous operation, such as a timer, network request, or event handler, the operation is delegated to the Web APIs (provided by the browser) or Node.js APIs (in a server environment). These APIs handle the asynchronous tasks outside the main thread.
+
+Once an asynchronous task is completed, a callback function associated with the task is placed in the task queue. The event loop continuously monitors the call stack and the task queue. When the call stack is empty, indicating that all synchronous code has been executed, the event loop picks the first callback from the task queue and pushes it onto the call stack for execution. This process ensures that the non-blocking behavior of JavaScript is maintained, allowing it to handle multiple tasks efficiently.
+
+Promises and microtasks are a more recent addition to the JavaScript event loop. Microtasks, such as promise callbacks, have a higher priority and are executed before regular task queue callbacks. When a promise is resolved, its then or catch callback is placed in the microtask queue, which the event loop checks after the current task execution and before moving to the next task in the task queue.
+
+In summary, the event loop enables JavaScript's single-threaded environment to handle asynchronous operations by offloading tasks to external APIs and using queues to manage callbacks. This ensures that JavaScript remains responsive and efficient, executing one piece of code at a time while seamlessly managing asynchronous events.
 */ 
