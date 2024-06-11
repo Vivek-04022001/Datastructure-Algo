@@ -31,4 +31,20 @@ front(): Return the front element without removing it from the queue.
 isEmpty(): Check if the queue is empty.
 size(): Return the number of elements in the queue.
 
+* Lookup -> O(n)
+* enqueue, dequeue, peek -> O(1)
+
+
+-------------------------------------
+Implementing of Stacks and Queues
+-------------------------------------
+When deciding between arrays and linked lists to implement stacks and queues, it's important to consider the specific operations that these data structures require and their performance characteristics.
+
+For stacks, an array-based implementation offers simplicity and direct access with O(1) time complexity for push and pop operations. Arrays are memory efficient with low overhead compared to linked lists. However, arrays have fixed sizes, and resizing dynamic arrays can be costly with O(n) time complexity, potentially causing performance issues. Conversely, a linked list-based stack implementation allows dynamic sizing, easily growing and shrinking as needed without resizing. It offers O(1) time complexity for push and pop operations, but each element requires additional memory for the pointer to the next element, leading to more memory consumption and slower access times with O(n) complexity when accessing elements by index.
+
+For queues, an array-based implementation is simple to implement and provides fast O(1) access times. However, it also shares the fixed-size limitation and resizing issues of stacks. Implementing a circular buffer can address some of these issues but adds complexity. A linked list-based queue implementation, on the other hand, excels with its dynamic size and O(1) time complexity for enqueue and dequeue operations. It uses more memory due to the pointer for each element, resulting in slower O(n) access times for indexed elements.
+
+In summary, array-based implementations are often preferred for their simplicity and performance when the size can be estimated or managed with dynamic arrays. Linked list-based implementations are advantageous when dynamic sizing is required, and they avoid the overhead of resizing but at the cost of increased memory usage and slower indexed access. For stacks, arrays are typically more efficient unless dynamic resizing is a major concern. For queues, linked lists are often more efficient due to their dynamic nature and efficient enqueue/dequeue operations.
+
+
 */ 
