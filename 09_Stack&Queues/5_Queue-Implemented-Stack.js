@@ -1,29 +1,27 @@
 class CrazyQueue {
-  contructor() {
+  constructor() {
     this.first = []; // enqueue
     this.last = []; // dequeue
   }
 
   push(element) {
-    for (let i = 0; i < this.first.length; i++) {
-      this.last.push(this.first.pop());
-    }
-    this.last.push(element);
+    this.first.push(element);
     return this;
   }
 
   pop() {
-    for (let i = 0; i < this.last.length; i++) {
-      this.first.push(this.last.pop());
+    if (this.last.length === 0) {
+      while (this.first.length > 0) {
+        this.last.push(this.first.pop());
+      }
     }
-    this.first.pop();
-    return this;
+    return this.last.pop();
   }
 
   peek() {
-    if (this.first.length > 0) {
-      return this.first[this.first.length - 1];
+    if (this.last.length > 0) {
+      return this.last[this.last.length - 1];
     }
-    return this.last[0];
+    return this.first[0];
   }
 }

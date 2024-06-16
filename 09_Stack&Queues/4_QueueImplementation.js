@@ -12,7 +12,7 @@ class Queue {
     this.length = 0;
   }
   peek() {
-    console.log(this.first)
+    console.log(this.first);
   }
   enqueue(value) {
     const newNode = new Node(value);
@@ -21,8 +21,8 @@ class Queue {
       this.last = newNode;
       this.length++;
     } else {
-      // top -> bottom || first -> last
-      // Joy -> Matt -> Pavel -> Samir -> (first -> last)
+      // queues : first -> newNode -> null because it works on the principal of fifo : first node is important because it goes first
+      // stack : newNode -> top -> null because it works on the pricnipal of lifo: so here we have to make last node as top and every time we push nodes , the new node becomes the top node.
       this.last.next = newNode;
       this.last = newNode;
     }

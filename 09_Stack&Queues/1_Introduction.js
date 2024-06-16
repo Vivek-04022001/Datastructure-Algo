@@ -1,4 +1,3 @@
-
 /*
 
 ----------------------
@@ -63,4 +62,4 @@ Once an asynchronous task is completed, a callback function associated with the 
 Promises and microtasks are a more recent addition to the JavaScript event loop. Microtasks, such as promise callbacks, have a higher priority and are executed before regular task queue callbacks. When a promise is resolved, its then or catch callback is placed in the microtask queue, which the event loop checks after the current task execution and before moving to the next task in the task queue.
 
 In summary, the event loop enables JavaScript's single-threaded environment to handle asynchronous operations by offloading tasks to external APIs and using queues to manage callbacks. This ensures that JavaScript remains responsive and efficient, executing one piece of code at a time while seamlessly managing asynchronous events.
-*/ 
+*/

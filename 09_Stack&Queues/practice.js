@@ -1,46 +1,41 @@
-// class Stack {
-//     constructor(){
-//       this.array = [];
-//     }
-//     peek() {
-//       return this.array[this.array.length-1];
-//     }
-//     push(value){
-//       this.array.push(value);
-//       return this;
-//     }
-//     pop(){
-//       this.array.pop();
-//       return this;
-//     }
-//   }
-
-class Stack {
-  constructor() {
-    this.array = [];
-  }
-  peek() {
-    return this.array[this.array.length - 1];
-  }
-  push(value) {
-    this.array.push(value);
-    return this;
-  }
-  pop() {
-    this.array.pop();
-    return this;
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
   }
 }
-const myStack = new Stack();
-myStack.peek();
-myStack.push("google");
-myStack.push("ztm");
-myStack.push("discord");
-myStack.peek();
-myStack.pop();
-myStack.pop();
-myStack.pop();
+// queue -> fifo : first in first out;
+class Queue {
+  constructor() {
+    this.first = null;
+    this.last = null;
+    this.length = 0;
+  }
 
-//Discord
-//ZTM
-//google
+  peek() {
+    console.log(this.first);
+  }
+  enqueue(value) {
+    const newNode = new Node(value);
+    if (this.length === 0) {
+      this.first = newNode;
+      this.last = newNode;
+      this.length = 1;
+    } else {
+      this.last.next = newNode;
+      this.last = newNode;
+      this.length++;
+    }
+  }
+  dequeue() {
+    if (this.length === 0) {
+    }
+  }
+}
+
+const myQueue = new Queue();
+
+//Joy
+//Matt
+//Pavel
+//Samir
