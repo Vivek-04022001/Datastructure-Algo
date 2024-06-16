@@ -17,6 +17,7 @@ class Stack {
   }
 
   // in stack we nodes in the beggining of the stack therefore it always (new Node) -> (previous top node) -> (bottom Node)
+  // new node will be the top node in the stack. The new node will point to previous
   //   in stack , this.top = this.head & this.bottom = this.tail
   push(value) {
     const newNode = new Node(value);
@@ -48,7 +49,7 @@ class Stack {
       return;
     } else {
       console.log("stack is empty");
-      return ;
+      return;
     }
   }
   printStack() {
